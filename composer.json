@@ -13,6 +13,7 @@
     },
     "require-dev": {
         "silex/silex": "~1.2",
+        "igorw/config-service-provider": "~1.2",
         "bt51/googleanalytics-serviceprovider": "dev-master"
     }
 }
