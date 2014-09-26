@@ -45,6 +45,9 @@
     <header>
         <div class="container">
             <div class="row">
+                {% for message in app.session.getFlashBag.get('message') %}
+                    <div class="alert alert-sucess">{{ message }}</div>
+                {% endfor %}
                 <div class="col-lg-12">
                     <div class="intro-text">
                         <span class="name">Freelander</span>
@@ -53,14 +56,14 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <form name="sentMessage" id="contactForm">
+                            <form name="sentMessage" id="contactForm" action="{{ path('subscribe') }}" method="POST">
                                 <br>
                                 <br>
                                 <br>
                                 <br>
                                 <br>
                                 <div class="row control-group">
-                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <br>
@@ -441,7 +444,7 @@
     <script src="/themes/default/js/classie.js"></script>
     <script src="/themes/default/js/cbpAnimatedHeader.js"></script>
     <script src="/themes/default/js/jqBootstrapValidation.js"></script>
-    <script src="/themes/default/js/contact_me.js"></script>
+    <script src="/themes/default/js/validation.js"></script>
     <script src="/themes/default/js/freelancer.js"></script>
 </body>
 </html>

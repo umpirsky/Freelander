@@ -13,7 +13,10 @@
     },
     "require-dev": {
         "silex/silex": "~1.2",
+        "symfony/twig-bridge": "~2.5",
         "igorw/config-service-provider": "~1.2",
+        "magdev/mailchimp-silex-provider": "dev-master",
         "bt51/googleanalytics-serviceprovider": "dev-master"
-    }
+    },
+    "minimum-stability": "dev"
 }
