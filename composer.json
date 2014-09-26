@@ -9,14 +9,20 @@
         }
     ],
     "require": {
-        "php": "~5.4"
-    },
-    "require-dev": {
+        "php": "~5.4",
         "silex/silex": "~1.2",
         "symfony/twig-bridge": "~2.5",
         "igorw/config-service-provider": "~1.2",
         "magdev/mailchimp-silex-provider": "dev-master",
         "bt51/googleanalytics-serviceprovider": "dev-master"
     },
-    "minimum-stability": "dev"
+    "require-dev": {
+        "behat/behat": "~3.0",
+        "behat/mink-extension": "~2.0",
+        "behat/mink-goutte-driver": "~1.1"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "bin-dir": "bin"
+    }
 }

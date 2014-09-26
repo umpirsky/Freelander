@@ -25,9 +25,23 @@ $app->get('/', function() use ($app) {
 $app->post('/subscribe', function(Symfony\Component\HttpFoundation\Request $request) use ($app) {
     $app['mailchimp']->lists->subscribe($app['mailchimp.list.id'], array('email' => $request->get('email')));
 
-    $app['session']->getFlashBag()->add('message', 'Thanks for subscribing.');
+    $app['session']->getFlashBag()->add('success', 'Thanks for subscribing.');
 
     return $app->redirect($app['url_generator']->generate('home'));
 })->bind('subscribe');
+
+$app->error(function (\Exception $e, $code) use ($app) {
+    switch ($code) {
+        case 404:
+            $message = 'The requested page could not be found.';
+            break;
+        default:
+            $message = $e->getMessage();
+    }
+
+    $app['session']->getFlashBag()->add('danger', $message);
+
+    return $app->redirect($app['url_generator']->generate('home'));
+});
 
 $app->run();

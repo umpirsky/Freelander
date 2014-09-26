@@ -1,0 +1,10 @@
+default:
+    extensions:
+        Behat\MinkExtension:
+            # Change this to your web server address.
+            base_url: http://localhost:8888/index.php
+            sessions:
+                default:
+                    goutte: ~
+            show_auto: false
+            show_cmd: chromium-browser %s

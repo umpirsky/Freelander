@@ -45,8 +45,10 @@
     <header>
         <div class="container">
             <div class="row">
-                {% for message in app.session.getFlashBag.get('message') %}
-                    <div class="alert alert-sucess">{{ message }}</div>
+                {% for type in ['success', 'danger'] %}
+                    {% for message in app.session.getFlashBag.get(type) %}
+                        <div class="alert alert-{{ type }}">{{ message }}</div>
+                    {% endfor %}
                 {% endfor %}
                 <div class="col-lg-12">
                     <div class="intro-text">
