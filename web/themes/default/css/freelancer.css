@@ -325,6 +325,11 @@ form .row:first-child .floating-label-form-group {
     border-top: 1px solid #eee;
 }
 
+form#contactForm input {
+    height: 66px;
+    font-size: 20px;
+}
+
 footer {
     color: #fff;
 }
