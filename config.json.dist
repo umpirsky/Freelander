@@ -2,5 +2,8 @@
     "debug": false,
     "mailchimp.apikey": "",
     "mailchimp.list.id": "",
-    "mailchimp.options": {}
+    "mailchimp.options": {},
+    "ga.configuration": {
+        "code": ""
+    }
 }

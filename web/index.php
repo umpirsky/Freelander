@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/mailchimp/mailchimp/src/Mailchimp/Exceptions.php';
 
 $app = new Silex\Application();
 
@@ -18,6 +19,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), [
 
 $app->register(new SilexMailchimp\Provider\MailchimpServiceProvider());
 
+$app->register(new Bt51\Silex\Provider\GoogleAnalyticsServiceProvider\GoogleAnalyticsServiceProvider());
+
 $app->get('/', function() use ($app) {
     return $app['twig']->render('default/index.html');
 })->bind('home');
@@ -30,18 +33,18 @@ $app->post('/subscribe', function(Symfony\Component\HttpFoundation\Request $requ
     return $app->redirect($app['url_generator']->generate('home'));
 })->bind('subscribe');
 
-$app->error(function (\Exception $e, $code) use ($app) {
-    switch ($code) {
-        case 404:
-            $message = 'The requested page could not be found.';
-            break;
-        default:
-            $message = $e->getMessage();
-    }
-
-    $app['session']->getFlashBag()->add('danger', $message);
+$errorHandler = function ($e) use ($app) {
+    $app['session']->getFlashBag()->add('danger', $e->getMessage());
 
     return $app->redirect($app['url_generator']->generate('home'));
+};
+
+$app->error(function (Mailchimp_ValidationError $e) use ($errorHandler) {
+    return $errorHandler($e);
+});
+
+$app->error(function (Mailchimp_List_AlreadySubscribed $e) use ($errorHandler) {
+    return $errorHandler($e);
 });
 
 $app->run();
