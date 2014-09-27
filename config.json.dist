@@ -1,5 +1,5 @@
 {
-    "debug": false,
+    "debug": true,
     "mailchimp.apikey": "",
     "mailchimp.list.id": "",
     "mailchimp.options": {},

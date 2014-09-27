@@ -263,6 +263,8 @@
     <script src="/themes/default/js/jqBootstrapValidation.js"></script>
     <script src="/themes/default/js/validation.js"></script>
     <script src="/themes/default/js/freelancer.js"></script>
-    {{ ga() }}
+    {% if app['ga.configuration'].code %}
+        {{ ga() }}
+    {% endif %}
 </body>
 </html>
