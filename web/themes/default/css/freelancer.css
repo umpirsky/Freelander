@@ -110,8 +110,8 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
-        padding-bottom: 100px;
+        padding-top: 210px;
+        padding-bottom: 200px;
     }
 
     header .intro-text .name {
@@ -252,7 +252,6 @@ section.success {
 }
 
 .btn-outline {
-    margin-top: 15px;
     border: solid 2px #fff;
     font-size: 20px;
     color: #fff;
@@ -323,6 +322,10 @@ section.success {
 
 form .row:first-child .floating-label-form-group {
     border-top: 1px solid #eee;
+}
+
+form#contactForm  {
+    margin-top: 90px;
 }
 
 form#contactForm input {
