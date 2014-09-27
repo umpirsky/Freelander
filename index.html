@@ -56,8 +56,7 @@
 
 <pre><code>$ composer create-project umpirsky/freelander -s dev freelander.dev
 $ cp freelander.dev/config.json.dist freelander.dev/config.json
-$ cd freelander.dev/web
-$ php -S localhost:8000
+$ php -S localhost:8000 web
 </code></pre>
 
 <h3>
@@ -76,6 +75,7 @@ $ php -S localhost:8000
 
 <ul>
 <li><p><code>debug</code> - Runs in debug mode if <code>true</code>. Useful while setting up since it gives detailed error messages. Don't forget to change to <code>false</code> after deploy.</p></li>
+<li><p><code>theme</code> - Theme to use for rendering. Choose one of: <code>default</code> and <code>agency</code>.</p></li>
 <li><p><code>mailchimp.apikey</code> - Enable MailChimp integration to your landing page by providing a <a href="http://kb.mailchimp.com/accounts/management/about-api-keys">API key</a>.</p></li>
 <li><p><code>mailchimp.list.id</code> - Each MailChimp list have a unique ID. Provide one where you want your customer to be subscribed. <a href="http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id">Need help finding your list ID?</a></p></li>
 <li><p><code>mailchimp.options</code> - Here some advanced options can be set to underlying MailChimp API. Some of them are <code>timeout</code> and <code>debug</code>. For more information check official <a href="https://bitbucket.org/mailchimp/mailchimp-api-php">MailChimp repository</a>.</p></li>
