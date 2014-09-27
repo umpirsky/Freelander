@@ -1,7 +1,7 @@
 <?php
 
 $app->get('/', function() use ($app) {
-    return $app['twig']->render('default/index.html');
+    return $app['twig']->render($app['theme'].'/index.html');
 })->bind('home');
 
 $app->post('/subscribe', function(Symfony\Component\HttpFoundation\Request $request) use ($app) {
