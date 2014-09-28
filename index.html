@@ -75,11 +75,21 @@ $ php -S localhost:8000 web
 
 <ul>
 <li><p><code>debug</code> - Runs in debug mode if <code>true</code>. Useful while setting up since it gives detailed error messages. Don't forget to change to <code>false</code> after deploy.</p></li>
-<li><p><code>theme</code> - Theme to use for rendering. Choose one of: <code>default</code> and <code>agency</code>.</p></li>
+<li><p><code>theme</code> - Theme to use for rendering. Choose one of: <code>default</code>, <code>application</code> and <code>agency</code>.</p></li>
 <li><p><code>mailchimp.apikey</code> - Enable MailChimp integration to your landing page by providing a <a href="http://kb.mailchimp.com/accounts/management/about-api-keys">API key</a>.</p></li>
 <li><p><code>mailchimp.list.id</code> - Each MailChimp list have a unique ID. Provide one where you want your customer to be subscribed. <a href="http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id">Need help finding your list ID?</a></p></li>
 <li><p><code>mailchimp.options</code> - Here some advanced options can be set to underlying MailChimp API. Some of them are <code>timeout</code> and <code>debug</code>. For more information check official <a href="https://bitbucket.org/mailchimp/mailchimp-api-php">MailChimp repository</a>.</p></li>
 <li><p><code>ga.configuration.code</code> - Add Google Analytics tracking code to your landing page by adding a tracking ID number. <a href="https://support.google.com/analytics/answer/1032385?hl=en">Need help finding your tracking ID?</a></p></li>
+</ul><h2>
+<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h2>
+
+<p>To customize HTML layout start off with one of existing themes stored in <code>web/themes</code>.
+It is recommended to copy existing theme before tweaking. You are free to change any css, javascript or image. In <code>index.html</code> there are some rules you need to follow in order to keep Freelander functionality:</p>
+
+<ul>
+<li><p>Keep form with <code>action="{{ path('subscribe') }}" method="POST"</code> in order to keep email subscription functionality. This form must contain email field.</p></li>
+<li><p>Keep <code>{% include 'analytics.html.twig' %}</code> in order to keep Google Analytics trackng code rendered at the bottom of the page.</p></li>
+<li><p>Keep <code>{% include 'flash.html.twig' %}</code> in order to render flash messages Freelander provides. If you want to customize this part, you can replace it with content of <code>views/flash.html.twig</code> and continue tweaking.</p></li>
 </ul>
       </section>
 
