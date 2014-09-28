@@ -1,8 +1,11 @@
 <?php
 
-$app->get('/', function() use ($app) {
-    return $app['twig']->render($app['theme'].'/index.html');
-})->bind('home');
+$app->get('/{theme}', function(Silex\Application $app, $theme) {
+    return $app['twig']->render(
+        ($theme ? $theme : $app['theme'])
+        .'/index.html'
+    );
+})->value('theme', null)->bind('home');
 
 $app->post('/subscribe', function(Symfony\Component\HttpFoundation\Request $request) use ($app) {
     $app['mailchimp']->lists->subscribe($app['mailchimp.list.id'], array('email' => $request->get('email')));

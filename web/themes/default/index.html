@@ -38,6 +38,9 @@
                     <li class="page-scroll">
                         <a href="#about">About</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#themes">Themes</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -127,6 +130,48 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="#" class="btn btn-lg btn-outline">
                         <i class="fa fa-download"></i> Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="themes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Themes</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="{{ path('home', {theme: 'default'}) }}" class="portfolio-link">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-play fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/themes/default/img/themes/default.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="{{ path('home', {theme: 'application'}) }}" class="portfolio-link">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-play fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/themes/default/img/themes/application.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="{{ path('home', {theme: 'agency'}) }}" class="portfolio-link">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-play fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/themes/default/img/themes/agency.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
