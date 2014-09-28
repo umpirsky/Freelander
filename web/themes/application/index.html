@@ -68,11 +68,7 @@
             <!-- Title -->
             <h1>Freelander</h1>
 
-            {% for type in ['success', 'danger'] %}
-                {% for message in app.session.getFlashBag.get(type) %}
-                    <div class="alert alert-{{ type }}">{{ message }}</div>
-                {% endfor %}
-            {% endfor %}
+            {% include 'flash.html.twig' %}
 
             <!-- Sub title -->
             <p>Architecto numquam perspiciatis commodi laboriosam quod debitis placeat maxime quaerat soluta quia porro dicta sunt nemo voluptates!</p>
@@ -383,8 +379,6 @@
     <script src="/themes/application/javascript/vendor/jquery-2.1.0.min.js"></script>
     <script src="/themes/application/javascript/bootstrap.min.js"></script>
     <script src="/themes/application/javascript/assets/application.js"></script>
-    {% if app['ga.configuration'].code %}
-        {{ ga() }}
-    {% endif %}
+    {% include 'analytics.html.twig' %}
   </body>
 </html>

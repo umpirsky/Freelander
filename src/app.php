@@ -9,7 +9,10 @@ $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 $app->register(new Silex\Provider\TwigServiceProvider(), [
-    'twig.path' => __DIR__.'/../web/themes',
+    'twig.path' => [
+        __DIR__.'/../views',
+        __DIR__.'/../web/themes',
+    ]
 ]);
 
 $app->register(new SilexMailchimp\Provider\MailchimpServiceProvider());
